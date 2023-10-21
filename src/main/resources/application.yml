@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${ADRESS}:${PORT}/${DB}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  mail:
+    host: smtp.mail.ru
+    protocol: smtps
+    port: 465
+    username: ${MAIL_LOGIN}
+    password: ${MAIL_PASSWORD}
+    properties.mail.smtp:
+      ssl.trust: "*"
+      auth: true
+      starttls.enable: true
+
+server:
+  port: 8080
+
+jwt:
+  secret: NeoHackSecret
+  lifetime: 1800000
+  refreshTokenLifetime: 86400000
